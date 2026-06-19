@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+title: Open Resilience Uganda
+message: If you use this workflow, please cite the repository and the associated paper.
+authors:
+  - family-names: Katende
+    given-names: Ronald
+version: 0.1.0
+license: MIT

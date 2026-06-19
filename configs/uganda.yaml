@@ -1,0 +1,81 @@
+project_name: open_resilience_uganda
+country_iso3: UGA
+country_name: Uganda
+admin_level: ADM2
+start_year: 2001
+end_year: 2022
+baseline_start: 2001
+baseline_end: 2015
+season_months: [3, 4, 5, 6]
+
+data_dir: data
+outputs_dir: outputs
+
+# Optional local boundary file. Leave null to download from geoBoundaries.
+boundary_path: null
+boundary_id_candidates: [shapeID, shapeName, ADM2_PCODE, ADM2_EN, district, name]
+boundary_name_candidates: [shapeName, ADM2_EN, district, name]
+
+# Countries for East Africa transfer test.
+transfer_countries:
+  - {iso3: UGA, name: Uganda}
+  - {iso3: KEN, name: Kenya}
+  - {iso3: TZA, name: Tanzania}
+  - {iso3: RWA, name: Rwanda}
+  - {iso3: BDI, name: Burundi}
+  - {iso3: ETH, name: Ethiopia}
+  - {iso3: MWI, name: Malawi}
+  - {iso3: MOZ, name: Mozambique}
+
+world_bank_indicators:
+  NY.GDP.PCAP.KD: gdp_pc_constant
+  NV.AGR.TOTL.KD.ZG: ag_value_added_growth
+  NV.AGR.TOTL.ZS: ag_value_added_share
+  EG.ELC.ACCS.ZS: electricity_access
+  SP.POP.TOTL: population_total
+  AG.LND.AGRI.ZS: agricultural_land_share
+
+# Optional FAOSTAT CSV with columns such as country, year, item, element, value.
+# The script will use it if present and skip gracefully if absent.
+faostat_csv: null
+
+# Google Earth Engine datasets and bands.
+gee:
+  use_gee: true
+  service_account: null
+  key_file: null
+  collections:
+    chirps:
+      id: UCSB-CHG/CHIRPS/DAILY
+      band: precipitation
+      scale: 5500
+    modis:
+      id: MODIS/061/MOD13Q1
+      bands: [NDVI, EVI]
+      scale_factor: 0.0001
+      scale: 250
+    viirs:
+      id: NASA/VIIRS/002/VNP46A2
+      band: Gap_Filled_DNB_BRDF_Corrected_NTL
+      start_year: 2012
+      scale: 500
+    worldpop:
+      id: WorldPop/GP/100m/pop
+      band: population
+      scale: 100
+
+priority_weights:
+  stress: 0.30
+  weak_capacity: 0.22
+  exposure: 0.20
+  adverse_vegetation: 0.20
+  uncertainty: 0.08
+
+action_thresholds:
+  high_priority_quantile: 0.80
+  medium_priority_quantile: 0.50
+  high_uncertainty_quantile: 0.60
+
+evaluation:
+  top_k: 20
+  random_seed: 2026

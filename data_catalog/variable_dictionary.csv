@@ -1,0 +1,14 @@
+variable,level,meaning,source,main_or_appendix
+rain_season,district-year,Seasonal rainfall total,CHIRPS,main
+rain_annual,district-year,Annual rainfall total,CHIRPS,appendix
+rain_stress,district-year,Standardized low-rainfall stress,Derived from CHIRPS,main
+ndvi,district-year,Seasonal NDVI mean,MODIS MOD13Q1,main
+evi,district-year,Seasonal EVI mean,MODIS MOD13Q1,appendix
+ndvi_anomaly,district-year,Standardized vegetation condition anomaly,Derived from MODIS,main
+nightlights,district-year,Annual night-time light mean,VIIRS Black Marble,main
+capacity_index,district-year,Composite structural capacity proxy,Derived,main
+population,district-year,District population count,WorldPop,main
+exposed_population_share,district-year,Share of population in high-stress district-years,Derived,main
+priority_score,district-year,Integrated resilience planning priority score,Derived,main
+action_category,district-year,Act now / measure first / monitor / lower priority,Derived,main
+U_norm,district-year,Normalized uncertainty proxy,Derived,main

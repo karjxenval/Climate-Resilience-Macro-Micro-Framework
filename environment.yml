@@ -1,0 +1,19 @@
+name: open-resilience
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - requests
+  - pyyaml
+  - geopandas
+  - shapely
+  - matplotlib
+  - scikit-learn
+  - statsmodels
+  - scipy
+  - pyarrow
+  - earthengine-api
+  - geemap
+  - pip
